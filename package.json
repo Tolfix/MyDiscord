@@ -5,18 +5,27 @@
   "main": "Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "nodemon": "nodemon ./build/Server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "canvas": "^2.8.0",
+    "date-and-time": "^1.0.1",
     "discord-badges": "^1.2.3",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "image-to-base64": "^2.2.0"
+    "image-to-base64": "^2.2.0",
+    "node-canvas": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/date-and-time": "^0.13.0",
+    "@types/express": "^4.17.12",
+    "@types/image-to-base64": "^2.1.0",
+    "@types/node": "^15.12.5"
   }
 }
