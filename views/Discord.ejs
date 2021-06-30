@@ -18,7 +18,7 @@
     <defs>
     <pattern id="image" height="100%" width="100%"
                 viewBox="0 0 512 512">
-        <image width="512" height="512" xlink:href="<%= user.avatarUrl %>"></image>
+        <image width="512" height="512" href="<%= user.avatarUrl %>"></image>
     </pattern>
     </defs>
 
@@ -40,7 +40,7 @@
 
     <g transform="translate(25, 35)">
         <% user.badges.forEach((badge, index) => { %>
-            <image class="shadow" x="<%= 150+((index)*35) %>" y="95" width="25" xlink:href="<%= badge.url %>"></image>
+            <image class="shadow" x="<%= 150+((index)*35) %>" y="95" width="25" href="<%= badge.url %>"></image>
         <% }) %>
     </g>
 

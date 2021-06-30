@@ -60,6 +60,9 @@ server.get("/", async (req, res) => {
         activity: User.presence.activities
     };
 
+    res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
+    res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
+
     res.render("Discord", {
         user
     });
