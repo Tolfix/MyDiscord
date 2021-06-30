@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const { Client } = require('discord.js');
 const { badges } = require("discord-badges");
+const imageToBase64 = require('image-to-base64');
 
 const server = express();
 
@@ -49,18 +50,21 @@ server.get("/", async (req, res) => {
     const User = await client.users.fetch(userId);
     const Badges = await badges(User)
 
+    const badgesUrl = await Promise.all(Badges.map(async e => {
+        return "data:image/png;base64,"+ await imageToBase64(e.url);
+    }))
+
     const user = {
         username: User.username,
         tag: User.tag,
-        avatarUrl: User.avatarURL({ size: 2048, dynamic: true }),
-        badges: Badges,
+        avatarUrl: "data:image/png;base64,"+(await imageToBase64(User.avatarURL({ size: 2048, dynamic: true }))),
+        badges: badgesUrl,
         status: User.presence.status,
         statusColor: getColor(User.presence.status),
         bg: getColorBackground(User.presence.status),
         activity: User.presence.activities
     };
 
-    res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
     res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
     res.send(`
 <svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195" fill="none">
@@ -104,7 +108,7 @@ server.get("/", async (req, res) => {
 
     <g transform="translate(25, 35)">
         ${ user.badges.map((badge, index) => { 
-            return `<image class="shadow" x="${150+((index)*35)}" y="95" width="25" href="${badge.url}"></image>`
+            return `<image class="shadow" x="${150+((index)*35)}" y="95" width="25" href="${badge}"></image>`
         }).reduce((a,b) => `${a}${b}`) 
         }
     </g>
