@@ -33,7 +33,7 @@ Then you can start adding like an image.
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banner`
 <br/>
-![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banner&&)
+![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banner&&&)
 
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=00CFF0`
