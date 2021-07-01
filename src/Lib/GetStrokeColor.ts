@@ -11,11 +11,13 @@ export default async function GetStrokeColors(
     if(stroke_circle === "profile")
         stroke = ((await converter.convert(userAvatar)).muted) as string
     
+    console.log(banner)
     if(stroke_circle === "banner" && banner)
         stroke = ((await converter.convert(banner)).muted) as string
     
-    if(stroke_circle && stroke_circle.length == 6)
+    if(stroke_circle && stroke_circle.length === 6 && !banner)
         stroke = "#"+stroke_circle;
 
+    console.log(stroke_circle.length)
     return stroke;
 }
