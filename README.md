@@ -10,5 +10,5 @@ Copy your ID from discord, then add it in the following link: `https://mydiscord
 Then you can start adding like an image.
 
 # Showcase
-`https://mydiscord.tolfix.com/?userId=269870630738853888&bg=https://cdn.tolfix.com/images/mountmywaves3.gif`
+`https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif`
 <img width="420" src="https://mydiscord.tolfix.com/?userId=269870630738853888&bg=https://cdn.tolfix.com/images/mountmywaves3.gif" />
