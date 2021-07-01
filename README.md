@@ -13,6 +13,10 @@ Then you can start adding like an image.
 
 * `userId` : The users id from discord, if none it can't generate a readme.
 * `banner` : Gives you the choice of picking an image from an url as a banner.
+* `stroke_circle` : Makes it possible to add a stroke around your profile picture
+  * `stroke_circle=banner` : If you got a custom banner, you can pick banner and it will pick the common color and use it as a stroke
+  * `stroke_circle=profile` : If you pick `profile` it will pick the most common color on your pofile and use it as a stroke
+  * `stroke_circle=FFFFFF` : You can pick a custom color, needs to be **6** characters long otherwise it will fail (for now).
 
 # Showcase
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif`
@@ -21,3 +25,7 @@ Then you can start adding like an image.
 `https://mydiscord.tolfix.com/?userId=269870630738853888`
 <br/>
 ![No banner](https://mydiscord.tolfix.com/?userId=269870630738853888&&&)
+
+`https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=profile`
+<br/>
+![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=profile)
