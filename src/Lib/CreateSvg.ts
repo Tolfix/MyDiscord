@@ -39,7 +39,7 @@ export default function createSvg(user: IUser)
         </defs>
     
         <g>
-            <circle transform="translate(-18 20)" cx="20%" cy="40%" r="20%" width="150" height="70%" id="sd" class="medium shadow image" x="5" y="30"  fill="url(#image)" stroke-width="0.8%" stroke="#23272A" />
+            <circle transform="translate(-18 20)" cx="20%" cy="40%" r="20%" width="150" height="70%" id="sd" class="medium shadow image" x="5" y="30"  fill="url(#image)" stroke-width="0.8%" stroke="${user.circleStrokeColor ?? "#23272A"}" />
         </g>
             
         <g data-testid="card-title" transform="translate(15, 95)">

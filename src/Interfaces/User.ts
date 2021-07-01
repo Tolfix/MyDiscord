@@ -7,5 +7,5 @@ export interface IUser
     background: string;
     background_url: Boolean;
     createdAt: string;
-    info: string;
+    circleStrokeColor?: string;
 };
