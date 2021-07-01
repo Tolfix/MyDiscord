@@ -2,6 +2,8 @@ require("dotenv").config();
 import express from 'express';
 import dateAndTime from "date-and-time"
 import { Client } from 'discord.js';
+import Converter from 'dominant-color-converter'
+const converter = new Converter()
 //@ts-ignore
 import { badges } from "discord-badges";
 import imageToBase64 from 'image-to-base64';
@@ -17,7 +19,7 @@ const client = new Client();
 server.get("/", async (req, res) => {
 
     const userId = req.query.userId;
-    const bg = req.query.bg as string;
+    const banner = req.query.banner as string;
     const info = req.query.info as string;
     const User = await client.users.fetch(userId as string);
     const Badges = await badges(User)
@@ -27,14 +29,15 @@ server.get("/", async (req, res) => {
     }))
 
     const userAvatar = User.avatarURL({ size: 2048, dynamic: true }) as string
+    const userAvatar_ = User.avatarURL({ size: 2048, format: "jpg" }) as string
     const userAvatar_gif: boolean = userAvatar.includes(".gif");
     const user: IUser = {
         username: User.username,
         tag: User.tag,
         avatarUrl: `data:image/${userAvatar_gif ? "gif" : "png"};base64,`+ (await imageToBase64(userAvatar)),
         badges: badgesUrl,
-        background: bg ? `data:image/png;base64,`+ await imageToBase64(bg) : "#484343",
-        background_url: bg ? true : false,
+        background: banner ? `data:image/png;base64,`+ await imageToBase64(banner) : ((await converter.convert(userAvatar_)).muted) as string,
+        background_url: banner ? true : false,
         createdAt: dateAndTime.format(User.createdAt, "YYYY-MM-DD"),
         info: info
     };
