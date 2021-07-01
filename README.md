@@ -9,6 +9,11 @@ Copy your ID from discord, then add it in the following link: `https://mydiscord
 
 Then you can start adding like an image.
 
+# Customization 
+
+* `userId` : The users id from discord, if none it can't generate a readme.
+* `banner` : Gives you the choice of picking an image from an url as a banner.
+
 # Showcase
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif`
 <img width="420" src="https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif" />
