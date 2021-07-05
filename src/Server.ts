@@ -21,7 +21,7 @@ server.get("/", async (req, res) => {
 
     const userId = req.query.userId;
     const banner = req.query.banner as string;
-    let stroke_circle: string | "profile" | "banner" = req.query.stroke_circle as string;
+    let stroke_circle: string | "profile" | "banner" | undefined = req.query.stroke_circle as undefined;
     const User = await client.users.fetch(userId as string);
     const Badges = await badges(User)   
     const badgesUrl = await Promise.all(Badges.map(async (e: any) => {
@@ -40,7 +40,7 @@ server.get("/", async (req, res) => {
         background: banner ? `data:image/png;base64,`+ await imageToBase64(banner) : ((await converter.convert(userAvatar_)).muted) as string,
         background_url: banner ? true : false,
         createdAt: dateAndTime.format(User.createdAt, "YYYY-MM-DD"),
-        circleStrokeColor: await GetStrokeColors(stroke_circle, banner, userAvatar_),
+        circleStrokeColor: stroke_circle ? await GetStrokeColors(stroke_circle, banner, userAvatar_) : "",
     };
 
     res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
