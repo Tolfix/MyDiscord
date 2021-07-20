@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.8.0",
     "date-and-time": "^1.0.1",
     "discord-badges": "^1.2.3",
     "discord.js": "^12.5.3",

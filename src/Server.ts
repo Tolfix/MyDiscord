@@ -3,6 +3,7 @@ import express from 'express';
 import dateAndTime from "date-and-time"
 import { Client } from 'discord.js';
 import Converter from 'dominant-color-converter'
+import { createCanvas } from "canvas"
 const converter = new Converter();
 //@ts-ignore
 import { badges } from "discord-badges";
@@ -61,6 +62,18 @@ server.get("/", async (req, res) => {
     res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
     res.send(createSvg(user));
 });
+
+server.get("/png", (req, res) => {
+    res.setHeader('Content-Type', 'image/png');
+    let Canvas = createCanvas(200, 200),
+    ctx = Canvas.getContext('2d');
+
+    ctx.font = '30px Impact';
+    ctx.rotate(0.1);
+    ctx.fillText('Awesome!', 50, 100);
+    const stream = Canvas.createPNGStream();
+    stream.pipe(res);
+})
 
 server.listen(process.env.PORT ? process.env.PORT : 8080);
 client.login(process.env.TOKEN);
