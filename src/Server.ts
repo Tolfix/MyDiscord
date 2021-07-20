@@ -70,7 +70,7 @@ server.get("/png", (req, res) => {
 
     ctx.font = '30px Impact';
     ctx.rotate(0.1);
-    ctx.fillText('NOT Awesome!', 50, 100);
+    ctx.fillText('NOT NOW Awesome!', 50, 100);
     const stream = Canvas.createPNGStream();
     stream.pipe(res);
 })

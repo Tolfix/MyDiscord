@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 LABEL author="Tolfix" maintainer="support@tolfix.com"
 
 # Upgrade/Update apt[-get]
