@@ -2,9 +2,7 @@ import fetch from "node-fetch";
 
 export async function GetBanner(clientId: string): Promise<string|null>
 {
-    const uid = clientId
-
-    let response = await fetch(`https://discord.com/api/v8/users/${uid}`, {
+    let response = await fetch(`https://discord.com/api/v8/users/${clientId}`, {
         method: 'GET',
         headers: {
             Authorization: `Bot ${process.env.TOKEN}`
@@ -22,7 +20,7 @@ export async function GetBanner(clientId: string): Promise<string|null>
     if(!banner)
         return Promise.resolve(null);
 
-    const isGif = await fetch(`https://cdn.discordapp.com/banners/${uid}/${banner}.gif`, {
+    const isGif = await fetch(`https://cdn.discordapp.com/banners/${clientId}/${banner}.gif`, {
         method: 'GET',
         headers: {
             Authorization: `Bot ${process.env.TOKEN}`
@@ -30,7 +28,7 @@ export async function GetBanner(clientId: string): Promise<string|null>
     })
 
     if(isGif.status === 415)
-        return Promise.resolve(`https://cdn.discordapp.com/banners/${uid}/${banner}.png?size=1024`)
+        return Promise.resolve(`https://cdn.discordapp.com/banners/${clientId}/${banner}.png?size=1024`)
 
-    return Promise.resolve(`https://cdn.discordapp.com/banners/${uid}/${banner}.gif?size=1024`)
+    return Promise.resolve(`https://cdn.discordapp.com/banners/${clientId}/${banner}.gif?size=1024`)
 }
