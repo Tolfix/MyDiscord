@@ -4,7 +4,7 @@ export interface IUser
     tag: string;
     avatarUrl: string;
     badges: Array<any>;
-    background: string;
+    background: string|null;
     background_url: Boolean;
     createdAt: string;
     circleStrokeColor?: string;

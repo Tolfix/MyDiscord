@@ -24,8 +24,6 @@ export default function createSvg(user: IUser)
         </defs>
         ` : ""}
 
-
-
         <rect data-testid="card-bg" x="0.5" y="0.5" rx="9.5" height="99%" stroke="#23272A" width="494" fill="${user.background_url ? "url(#img1)" : user.background}" stroke-opacity="0"/>
         
         <g>
