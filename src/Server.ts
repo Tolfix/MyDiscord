@@ -41,7 +41,7 @@ server.get("/", async (req, res) => {
         tag: User.tag,
         avatarUrl: `data:image/${userAvatar_gif ? "gif" : "png"};base64,`+ (await imageToBase64(userAvatar)),
         badges: badgesUrl,
-        background: realBanner ? await GetBanner(User.id) : banner ? 
+        background: realBanner ? `data:image/png;base64,` + await imageToBase64(await GetBanner(User.id) ?? "") : banner ? 
             `data:image/png;base64,`+ await imageToBase64(banner) : 
             ((await converter.convert(userAvatar_)).muted) as string,
         background_url: banner ? true : false,
