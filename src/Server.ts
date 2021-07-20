@@ -21,20 +21,29 @@ const client = new Client();
 server.get("/", async (req, res) => {
 
     const userId = req.query.userId;
+    if(!userId)
+        res.json({ error: "Please provide a userid (?userId=)" })
+
     let banner = req.query.banner as string;
     let stroke_circle: string | "profile" | "banner" | undefined = req.query.stroke_circle as undefined;
+
     const User = await client.users.fetch(userId as string);
+
     const Badges = await badges(User)   
     const badgesUrl = await Promise.all(Badges.map(async (e: any) => {
         return "data:image/png;base64," + await imageToBase64(e.url);
     }));
+
     let realBanner = false;
     if(banner === "true")
         realBanner = true;
 
+    // Avatar
     const userAvatar = User.avatarURL({ size: 2048, dynamic: true }) as string
+    // Avatar only .jpg for stroke circle
     const userAvatar_ = User.avatarURL({ size: 2048, format: "jpg" }) as string
-    const userAvatar_gif: boolean = userAvatar.includes(".gif");
+    // Is it a gif?
+    const userAvatar_gif: Boolean = userAvatar.includes(".gif");
 
     const user: IUser = {
         username: User.username,
