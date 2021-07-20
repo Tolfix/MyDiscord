@@ -22,27 +22,27 @@ Then you can start adding like an image.
 
 # Showcase
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif`
-![With banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif)
+![With banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&false=true)
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888`
 <br/>
-![No banner](https://mydiscord.tolfix.com/?userId=269870630738853888&&&)
+![No banner](https://mydiscord.tolfix.com/?userId=269870630738853888&false=true)
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=profile`
 <br/>
-![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=profile&false=false)
+![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=profile&false=true)
 
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banner`
 <br/>
-![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banner)
+![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banne&false=truer)
 
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=00CFF0`
 <br/>
-![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=00CFF0)
+![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=00CFF0&false=true)
 
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=true`
 </br>
-![Grabbing banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=true&false=false)
+![Grabbing banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=true&false=true)
