@@ -1,5 +1,11 @@
 import fetch from "node-fetch";
 
+/**
+ * 
+ * @param clientId 
+ * @returns 
+ * @deprecated
+ */
 export async function GetBanner(clientId: string): Promise<string|null>
 {
     let response = await fetch(`https://discord.com/api/v8/users/${clientId}`, {

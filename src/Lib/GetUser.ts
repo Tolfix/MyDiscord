@@ -10,7 +10,6 @@ import { badges } from "discord-badges";
 import imageToBase64 from 'image-to-base64';
 import { IUser } from '../Interfaces/User';
 import GetStrokeColors from './GetStrokeColor';
-import { GetBanner } from './GetBanner';
 
 export async function getUser(res: Response, req: Request, client: Client, toBase64: Boolean = true)
 {
