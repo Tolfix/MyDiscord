@@ -4,12 +4,14 @@ import { Client } from 'discord.js';
 import createSvg from "./Lib/CreateSvg";
 import { getUser } from './Lib/GetUser';
 import { CreatePNG } from './Lib/CreatePNG';
+import DiscordBanner from "discord-banner";
 
 const server = express();
 
 server.set('view engine', 'ejs');
 
 const client = new Client();
+DiscordBanner(client);
 
 server.get("/", async (req, res) => {
     res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
