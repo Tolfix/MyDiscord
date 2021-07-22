@@ -24,31 +24,9 @@ Then you can start adding like an image.
 `https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner`
 ![PNG](https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner)
 
-`https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif`
-![With banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&false=true)
-
 `https://mydiscord.tolfix.com/?userId=269870630738853888`
 <br/>
 ![No banner](https://mydiscord.tolfix.com/?userId=269870630738853888&false=true)
-
-`https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=profile`
-<br/>
-![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=profile&false=true)
-
-
-`https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banner`
-<br/>
-![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=banne&false=truer)
-
-
-`https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=00CFF0`
-<br/>
-![Stroke Circle](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&stroke_circle=00CFF0&false=true)
-
-
-`https://mydiscord.tolfix.com/?userId=269870630738853888&banner=true`
-</br>
-![Grabbing banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=true&false=true)
 
 # Discord
 [![Discord](https://discord.com/api/guilds/833438897484595230/widget.png?style=banner4)](https://discord.gg/xHde7g93Yh)
