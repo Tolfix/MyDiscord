@@ -47,8 +47,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
 
     ctx.font = 'bold 20px Arial';
     ctx.fillStyle = '#ffffff';
-    ctx.textAlign = "center";
-    ctx.fillText(`${user.createdAt}`, canvas.width / 2, canvas.height / 1.1);
+    ctx.fillText(`${user.createdAt}`, canvas.width / 2.5, canvas.height / 1.09);
 
     ctx.save();
         ctx.beginPath();
