@@ -10,8 +10,8 @@ const server = express();
 
 server.set('view engine', 'ejs');
 
+DiscordBanner();
 const client = new Client();
-DiscordBanner(client);
 
 server.get("/", async (req, res) => {
     res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");

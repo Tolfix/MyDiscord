@@ -43,7 +43,7 @@ export async function getUser(res: Response, req: Request, client: Client, toBas
     const userAvatar_gif: Boolean = userAvatar.includes(".gif");
 
     let avatarURL = toBase64 ? `data:image/${userAvatar_gif ? "gif" : "png"};base64,`+ (await imageToBase64(userAvatar)) : userAvatar_;
-    const bannerDiscord = await client.user?.getUserBanner(User.id);
+    const bannerDiscord = await User.bannerURL();
     // mmlol :^)
     let background = toBase64 
                             ?
