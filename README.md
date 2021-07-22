@@ -49,3 +49,6 @@ Then you can start adding like an image.
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=true`
 </br>
 ![Grabbing banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=true&false=true)
+
+# Discord
+[![Discord](https://discord.com/api/guilds/833438897484595230/widget.png?style=banner4)](https://discord.gg/xHde7g93Yh)
