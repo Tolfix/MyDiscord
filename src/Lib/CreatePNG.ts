@@ -36,8 +36,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
     // Print name
     ctx.font = 'bold 20px Arial';
     ctx.fillStyle = '#ffffff';
-    ctx.textAlign = "center";
-    ctx.fillText(`${user.tag}`, canvas.width / 2, canvas.height / 1.5);
+    ctx.fillText(`${user.tag}`, 200, canvas.height / 1.5);
     let countBadge = 0;
     for(const badge of user.badges)
     {
@@ -51,7 +50,21 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
     ctx.textAlign = "center";
     ctx.fillText(`${user.createdAt}`, canvas.width / 2, canvas.height / 1.1);
 
-    // ctx.drawImage(avatar, canvas.width / 15, canvas.height / 3.5, 150, 150);
+    ctx.save();
+        ctx.beginPath();
+        ctx.arc(canvas.width / 5, canvas.height / 1.8, 80, 0, 2 * Math.PI, false);
+        
+        ctx.clip();
+        
+        ctx.drawImage(avatar, 10, 80, 180, 180);
+
+        if(user.circleStrokeColor)
+        {
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = user.circleStrokeColor;
+            ctx.stroke();
+        }
+    ctx.restore()
 
     return Promise.resolve(canvas)
 }
