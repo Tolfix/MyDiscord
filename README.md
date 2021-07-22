@@ -10,7 +10,7 @@ Copy your ID from discord, then add it in the following link: `https://mydiscord
 Then you can start adding like an image.
 
 # Customization 
-
+* `/png` : Possbile to get an PNG format instead of SVG *(beta)*
 * `userId` : The users id from discord, if none it can't generate a readme.
 * `banner` : Gives you the choice of picking an image from an url as a banner.
   * `banner=https://cdn.tolfix.com/images/mountmywaves3.gif` : Custom banner of own liking
@@ -21,6 +21,9 @@ Then you can start adding like an image.
   * `stroke_circle=FFFFFF` : You can pick a custom color, needs to be **6** characters long otherwise it will fail (for now).
 
 # Showcase
+`https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner`
+![PNG](https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner)
+
 `https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif`
 ![With banner](https://mydiscord.tolfix.com/?userId=269870630738853888&banner=https://cdn.tolfix.com/images/mountmywaves3.gif&false=true)
 
