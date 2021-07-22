@@ -9,6 +9,9 @@ Copy your ID from discord, then add it in the following link: `https://mydiscord
 
 Then you can start adding like an image.
 
+# Presence
+If you want the bot to check your status join the [`discord server`](https://discord.gg/xHde7g93Yh).
+
 # Customization 
 * `/png` : Possbile to get an PNG format instead of SVG *(beta)*
 * `userId` : The users id from discord, if none it can't generate a readme.
