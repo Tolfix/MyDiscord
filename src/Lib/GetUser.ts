@@ -1,6 +1,4 @@
-
 import { Response, Request } from "express";
-
 import dateAndTime from "date-and-time"
 import { Client } from 'discord.js';
 import Converter from 'dominant-color-converter'
@@ -80,6 +78,7 @@ export async function getUser(res: Response, req: Request, client: Client, toBas
         background_url: realBanner ? true : banner && bannerUrl ? true : false,
         createdAt: dateAndTime.format(User.createdAt, "YYYY-MM-DD"),
         circleStrokeColor: stroke_circle ? await GetStrokeColors(stroke_circle, banner, userAvatar_, User.id) : "",
+        presence: User.presence
     };
 
     return user;

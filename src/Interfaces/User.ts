@@ -1,3 +1,5 @@
+import { Presence } from "discord.js";
+
 export interface IUser
 {
     username: string;
@@ -8,4 +10,5 @@ export interface IUser
     background_url: Boolean;
     createdAt: string;
     circleStrokeColor?: string;
+    presence: Presence;
 };
