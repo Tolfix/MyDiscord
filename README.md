@@ -21,9 +21,13 @@ Then you can start adding like an image.
   * `stroke_circle=FFFFFF` : You can pick a custom color, needs to be **6** characters long otherwise it will fail (for now).
 
 # Showcase
+
+### PNG (Beta)
 `https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner`
 ![PNG](https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner&false=false)
 
+
+### SVG (Beta)
 `https://mydiscord.tolfix.com/?userId=269870630738853888`
 <br/>
 ![No banner](https://mydiscord.tolfix.com/?userId=269870630738853888&false=true)
