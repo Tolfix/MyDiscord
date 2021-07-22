@@ -13,6 +13,16 @@ server.set('view engine', 'ejs');
 DiscordBanner();
 const client = new Client();
 
+client.on("ready", () => {
+    client.user?.setPresence({
+        status: "idle",
+        activity: {
+            name: `for new readme`,
+            type: "WATCHING",
+        }
+    });
+});
+
 server.get("/", async (req, res) => {
     res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
     res.send(createSvg(await getUser(res, req, client)));
