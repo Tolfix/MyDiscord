@@ -36,7 +36,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
     // Print name
     ctx.font = 'bold 20px Arial';
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(`${user.tag}`, 200, canvas.height / 1.5);
+    ctx.fillText(`${user.tag}`, canvas.width / 2.5, canvas.height / 1.5);
     let countBadge = 0;
     for(const badge of user.badges)
     {
