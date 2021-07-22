@@ -22,7 +22,7 @@ server.get("/png", async (req, res) => {
     res.setHeader('Content-Type', 'image/png');
     const stream = (await CreatePNG(await getUser(res,req,client, false))).createPNGStream();
     stream.pipe(res);
-})
+});
 
 server.listen(process.env.PORT ? process.env.PORT : 8080);
 client.login(process.env.TOKEN);
