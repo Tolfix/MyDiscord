@@ -15,7 +15,7 @@ const client = new Client();
 
 client.on("ready", () => {
     client.user?.setPresence({
-        status: "idle",
+        status: "dnd",
         activity: {
             name: `for new readme`,
             type: "WATCHING",
