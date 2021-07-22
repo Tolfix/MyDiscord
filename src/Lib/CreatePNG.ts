@@ -1,5 +1,6 @@
 import { IUser } from "../Interfaces/User";
 import { Canvas, createCanvas, loadImage  } from "canvas"
+import { GetColorStatus } from "./GetPresence";
 
 export async function CreatePNG(user: IUser): Promise<Canvas>
 {
@@ -28,15 +29,26 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
 
     // Draw panel front
     ctx.beginPath();
+        ctx.shadowColor = "#1B1E20";
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = -5;
+        ctx.shadowBlur = 6;
         ctx.fillStyle = "#23272A";
         ctx.fillRect(0, Math.floor(width/3), width, height*2);
         ctx.stroke();
     ctx.closePath();
 
-    // Print name
     ctx.font = 'bold 20px Arial';
+    ctx.shadowColor = "black";
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowBlur = 2;
     ctx.fillStyle = '#ffffff';
+    
+    // Print name
     ctx.fillText(`${user.tag}`, canvas.width / 2.5, canvas.height / 1.5);
+
+    // Print badges
     let countBadge = 0;
     for(const badge of user.badges)
     {
@@ -45,25 +57,57 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
         countBadge++
     }
 
-    ctx.font = 'bold 20px Arial';
-    ctx.fillStyle = '#ffffff';
+    // Print created at
     ctx.fillText(`${user.createdAt}`, canvas.width / 2.5, canvas.height / 1.09);
 
+    // Print profile picture
     ctx.save();
         ctx.beginPath();
         ctx.arc(canvas.width / 5, canvas.height / 1.8, 80, 0, 2 * Math.PI, false);
+
+        ctx.shadowColor = "black";
+        ctx.shadowOffsetX = 5;
+        ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 5;
+
+        ctx.lineWidth = 7;
+
+        // Make the stroke transparent
+        ctx.strokeStyle = user.circleStrokeColor ?? "#23272A";
         
+        ctx.stroke();
+
         ctx.clip();
         
         ctx.drawImage(avatar, 10, 80, 180, 180);
 
-        if(user.circleStrokeColor)
-        {
-            ctx.lineWidth = 5;
-            ctx.strokeStyle = user.circleStrokeColor;
-            ctx.stroke();
-        }
-    ctx.restore()
+        ctx.closePath();
+    ctx.restore();
+
+    ctx.save();
+        ctx.beginPath();
+        
+        ctx.arc(canvas.width / 3.44, canvas.height / 1.3, 15, 0, 2 * Math.PI, false);
+
+        ctx.shadowColor = "";
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
+        ctx.shadowBlur = 0;
+        ctx.lineWidth = 3;        
+
+        ctx.strokeStyle = "#23272A";
+
+        ctx.fillStyle = GetColorStatus(user.presence.status);
+        
+        ctx.fill();
+        
+        ctx.stroke();
+        
+        ctx.clip();
+
+        ctx.closePath();
+    ctx.restore();
+
 
     return Promise.resolve(canvas)
 }
