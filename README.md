@@ -22,7 +22,7 @@ Then you can start adding like an image.
 
 # Showcase
 `https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner`
-![PNG](https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner)
+![PNG](https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner&false=false)
 
 `https://mydiscord.tolfix.com/?userId=269870630738853888`
 <br/>
