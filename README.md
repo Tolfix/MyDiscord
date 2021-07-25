@@ -28,7 +28,7 @@ If you want the bot to check your status join the [`discord server`](https://dis
 
 ### PNG (Beta)
 `https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner`
-![PNG](https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner&false=true)
+![PNG](https://mydiscord.tolfix.com/png?userId=269870630738853888&banner=true&stroke_circle=banner&false=all)
 
 
 ### SVG (Beta)
