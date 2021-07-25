@@ -15,6 +15,7 @@ If you want the bot to check your status join the [`discord server`](https://dis
 # Customization 
 * `/png` : Possbile to get an PNG format instead of SVG *(beta)*
 * `userId` : The users id from discord, if none it can't generate a readme.
+* `createdAt` : Shows when a user was created *(.png ONLY)*
 * `banner` : Gives you the choice of picking an image from an url as a banner.
   * `banner=https://cdn.tolfix.com/images/mountmywaves3.gif` : Custom banner of own liking
   * `banner=true` : If you have a banner in discord, it will grab it and use it as a banner.
