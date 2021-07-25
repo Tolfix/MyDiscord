@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/common-tags": "^1.8.1",
     "canvas": "^2.8.0",
+    "common-tags": "^1.8.0",
     "date-and-time": "^1.0.1",
     "discord-badges": "^1.2.3",
     "discord-banner": "^1.1.7",
