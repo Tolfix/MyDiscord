@@ -10,7 +10,6 @@ export default async function GetStrokeColors(
 )
 {
     let stroke;
-    console.log()
     if(stroke_circle === "profile")
         stroke = ((await converter.convert(userAvatar)).muted) as string
     

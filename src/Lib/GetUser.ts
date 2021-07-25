@@ -16,6 +16,7 @@ export async function getUser(res: Response, req: Request, client: Client, toBas
         res.json({ error: "Please provide a userid (?userId=)" })
 
     let banner = req.query.banner as string;
+    let createdAt = req.query.createdAt === "true" ? true : false;
     let stroke_circle: string | "profile" | "banner" | undefined = req.query.stroke_circle as undefined;
 
     const User = await client.users.fetch(userId as string);
@@ -76,8 +77,8 @@ export async function getUser(res: Response, req: Request, client: Client, toBas
         badges: badgesUrl,
         background: background,
         background_url: realBanner ? true : banner && bannerUrl ? true : false,
-        createdAt: dateAndTime.format(User.createdAt, "YYYY-MM-DD"),
-        circleStrokeColor: stroke_circle ? await GetStrokeColors(stroke_circle, banner, userAvatar_, User.id) : "",
+        createdAt: createdAt ? dateAndTime.format(User.createdAt, "YYYY-MM-DD") : null,
+        circleStrokeColor: stroke_circle ?? await GetStrokeColors(stroke_circle as unknown as string, banner, userAvatar_, User.id),
         presence: User.presence
     };
 

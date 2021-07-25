@@ -8,7 +8,7 @@ export interface IUser
     badges: Array<any>;
     background: string|null|undefined;
     background_url: Boolean;
-    createdAt: string;
+    createdAt: string|null;
     circleStrokeColor?: string;
     presence: Presence;
 };
