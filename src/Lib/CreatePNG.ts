@@ -1,6 +1,6 @@
 import { IUser } from "../Interfaces/User";
 import { Canvas, createCanvas, loadImage  } from "canvas"
-import { GetColorStatus } from "./GetPresence";
+import { GetColorStatus, PrintActivityFormated } from "./GetPresence";
 
 export async function CreatePNG(user: IUser): Promise<Canvas>
 {
@@ -8,7 +8,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
     let height = 295;
 
     const avatar = await loadImage(user.avatarUrl);
-    const background = user.background_url ? await loadImage(user.background ?? "") : undefined
+    const background = user.background_url ? await loadImage(user.background ?? "https://cdn.tolfix.com/images/TX-Small.png") : undefined
 
     let canvas = createCanvas(width, height),
     ctx = canvas.getContext('2d');
@@ -17,7 +17,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
     ctx.beginPath();
         if(user.background_url)
         {
-            ctx.drawImage(background, 0, 0, width, height)
+            ctx.drawImage(background, 0, 0, width, height/1.7)
         }
         else
         {
@@ -34,7 +34,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
         ctx.shadowOffsetY = -5;
         ctx.shadowBlur = 6;
         ctx.fillStyle = "#23272A";
-        ctx.fillRect(0, Math.floor(width/3), width, height*2);
+        ctx.fillRect(-20, Math.floor(width/3), width*1.5, height*2);
         ctx.stroke();
     ctx.closePath();
 
@@ -45,21 +45,50 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
     ctx.shadowBlur = 2;
     ctx.fillStyle = '#ffffff';
     
+    ctx.textAlign = "center"
     // Print name
-    ctx.fillText(`${user.tag}`, canvas.width / 2.5, canvas.height / 1.5);
+    ctx.fillText(`${user.tag}`, canvas.width / 5, canvas.height / 1.05);
 
+    ctx.textAlign = "start";
     // Print badges
     let countBadge = 0;
     for(const badge of user.badges)
     {
         const b = await loadImage(badge);
-        ctx.drawImage(b, 200+((countBadge)*35), canvas.height / 1.4, 30, 30);
+        ctx.drawImage(b, 200+((countBadge)*35), canvas.height / 1.66, 30, 30);
         countBadge++
     }
 
     // Print created at
-    ctx.fillText(`${user.createdAt}`, canvas.width / 2.5, canvas.height / 1.09);
+    if(user.createdAt)
+        ctx.fillText(`${user.createdAt}`, canvas.width / 2.5, canvas.height / 1.25);
 
+    if(user.presence.activities.length > 0)
+    {
+        for(const activity of user.presence.activities)
+        {
+            if(activity.type !== "CUSTOM_STATUS")
+            {
+                // const activtyImage = await loadImage(`https://cdn.discordapp.com/app-assets/383226320970055681/`+activity.assets?.largeImage+".png")
+                const activtyImage = await loadImage((activity.assets?.largeImageURL())?.replace(".webp", ".png") ?? "")
+                ctx.drawImage(activtyImage, 340, 220, 70, 70);
+                ctx.font = 'bold 10px Arial';
+                ctx.fillText(PrintActivityFormated(activity), canvas.width / 1.45, canvas.height / 1.6);
+                break;
+            }
+        }
+
+        ctx.font = 'bold 20px Arial';
+        // Line
+        ctx.beginPath();
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.strokeStyle = '#23272A';
+            ctx.moveTo(canvas.width / 1.5, Math.floor(width/3));
+            ctx.lineTo(canvas.width / 1.5, 500);
+        ctx.stroke();
+        
+    }
     // Print profile picture
     ctx.save();
         ctx.beginPath();
