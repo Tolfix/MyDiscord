@@ -26,12 +26,14 @@ client.on("ready", () => {
 server.get("/", async (req, res) => {
     console.log(`SVG requested`)
     res.setHeader("Content-Type", "image/svg+xml; charset=utf-8");
+    res.setHeader("Cache-Control", "max-age=0, no-cache, no-store, must-revalidate")
     res.send(createSvg(await getUser(res, req, client)));
 });
 
 server.get("/png", async (req, res) => {
     res.setHeader('Content-Type', 'image/png');
     console.log(`PNG requested`)
+    res.setHeader("Cache-Control", "max-age=0, no-cache, no-store, must-revalidate")
     const stream = (await CreatePNG(await getUser(res, req, client, false))).createPNGStream();
     stream.pipe(res);
 });
