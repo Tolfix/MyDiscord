@@ -32,7 +32,7 @@ server.get("/", async (req, res) => {
 server.get("/png", async (req, res) => {
     res.setHeader('Content-Type', 'image/png');
     console.log(`PNG requested`)
-    const stream = (await CreatePNG(await getUser(res,req,client, false))).createPNGStream();
+    const stream = (await CreatePNG(await getUser(res, req, client, false))).createPNGStream();
     stream.pipe(res);
 });
 

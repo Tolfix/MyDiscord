@@ -17,7 +17,7 @@
     "common-tags": "^1.8.0",
     "date-and-time": "^1.0.1",
     "discord-badges": "^1.2.3",
-    "discord-banner": "^1.1.7",
+    "discord-banner": "^1.6.0",
     "discord.js": "^12.5.3",
     "dominant-color-converter": "^1.1.1",
     "dotenv": "^10.0.0",
