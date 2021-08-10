@@ -1,15 +1,14 @@
 import { IUser } from "../Interfaces/User";
-import { Canvas, createCanvas, loadImage  } from "canvas"
+import { Canvas, createCanvas, loadImage } from "canvas"
 import { GetColorStatus, PrintActivityFormated } from "./GetPresence";
 
 export async function CreatePNG(user: IUser): Promise<Canvas>
 {
     let width = 495;
     let height = 295;
-
     const avatar = await loadImage(user.avatarUrl);
     const background = user.background_url ? await loadImage(user.background ?? "https://cdn.tolfix.com/images/TX-Small.png") : undefined
-
+    
     let canvas = createCanvas(width, height),
     ctx = canvas.getContext('2d');
 
@@ -46,6 +45,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
     ctx.fillStyle = '#ffffff';
     
     ctx.textAlign = "center"
+
     // Print name
     ctx.fillText(`${user.tag}`, canvas.width / 5, canvas.height / 1.05);
 
@@ -61,7 +61,7 @@ export async function CreatePNG(user: IUser): Promise<Canvas>
 
     // Print created at
     if(user.createdAt)
-        ctx.fillText(`${user.createdAt}`, canvas.width / 2.5, canvas.height / 1.25);
+        ctx.fillText(`${user.createdAt}`, canvas.width / 2.6, canvas.height / 1.25);
 
     if(user.presence.activities.length > 0)
     {
