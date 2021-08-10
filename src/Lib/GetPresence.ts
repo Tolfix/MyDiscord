@@ -24,13 +24,27 @@ export function PresenceActivityType(type: ActivityType)
         return "Listening to";
 }
 
+export function TextAbstract(text: string|null, length: number)
+{
+    if (text == null)
+        return "";
+
+    if (text.length <= length)
+        return text;
+
+    text = text.substring(0, length);
+    let last = text.lastIndexOf(" ");
+    text = text.substring(0, last);
+    return text + "...";
+}
+
 export function PrintActivityFormated(activity: Activity): string
 {
     if(activity.type === "LISTENING")
         return stripIndent`
         Listening to ${activity.name}
-        ${activity.details}
-        by ${activity.state}
+        ${TextAbstract(activity.details, 24)}
+        by ${TextAbstract(activity.state, 24)}
         `;
 
     if(activity.type === "STREAMING")
@@ -42,8 +56,8 @@ export function PrintActivityFormated(activity: Activity): string
         return stripIndent`
         Playing a game
         ${activity.name}
-        ${activity.details}
-        ${activity.state}
+        ${TextAbstract(activity.details, 24)}
+        ${TextAbstract(activity.state, 24)}
         `
 
     return stripIndent`
